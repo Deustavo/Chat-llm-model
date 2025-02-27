@@ -5,7 +5,7 @@ interface AgentApiKeyProps {
     setAPIKey: (apiKey: string) => void
 };
 
-const initialApiState = import.meta.env.VITE_CHATGPT_SECRET_KEY || undefined;
+const initialApiState = undefined;
 
 export const useAgentApiKeyProps = create<AgentApiKeyProps>((set) => ({
     apiKey: initialApiState,

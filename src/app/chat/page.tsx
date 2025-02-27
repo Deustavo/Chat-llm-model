@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function EmptyChat() {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen w-screen">
       <Sidebar isResponsive={false} />
-      <div className="flex items-center justify-center w-4/5">
+      <div className="flex items-center justify-center w-5/6">
         Inicie um novo chat
       </div>
     </div>

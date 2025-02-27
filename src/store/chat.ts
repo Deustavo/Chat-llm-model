@@ -4,7 +4,7 @@ import store from "store2";
 
 export interface UseChatProps {
     chat: Chat[],
-    selectedChat: Chat | undefined,
+    selectedChat: Chat,
     setChat: (payload: Chat) => void,
     addChat: (callback?: (id: string) => void) => void,
     editChat: (id: string, payload: Partial<Chat>) => void,
