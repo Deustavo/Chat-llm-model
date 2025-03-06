@@ -169,18 +169,6 @@ export default function Sidebar({ isResponsive, ...props }: SideBarProps) {
                     </button> */}
                     <button
                         className="flex items-center justify-start p-2 w-full text-left bg-transparent hover:bg-blackAlpha-300"
-                    >
-                        <FiExternalLink className="mr-2" />
-                        Updates & FAQ
-                    </button>
-                    <button
-                        className="flex items-center justify-start p-2 w-full text-left bg-transparent hover:bg-blackAlpha-300"
-                    >
-                        <FiLogOut className="mr-2" />
-                        Log Out
-                    </button>
-                    <button
-                        className="flex items-center justify-start p-2 w-full text-left bg-transparent hover:bg-blackAlpha-300"
                         // onClick={handleOpenAPIKeyModal}
                     >
                         <FiKey className="mr-2" />
