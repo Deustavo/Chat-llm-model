@@ -5,8 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #F0ECDF;
-  --foreground: #302624;
+  --background-color: #F0ECDF;
+  --primary-color: #F84511;
+  --secondary-color: #302624;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -17,8 +18,8 @@
 } */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--secondary-color);
+  background: var(--background-color);
 
   font-family: "DM Serif Text", serif;
   font-weight: 400;
