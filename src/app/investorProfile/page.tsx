@@ -1,12 +1,17 @@
 "use client"
 
 import { useState } from "react";
-import PhillPointing from "@/assets/phill/v4.png"
-import PhillSmilling from "@/assets/phill/v3.png"
 import { useRouter } from 'next/navigation';
 
-export default function CharacterChat() {
-  const [phillImage, setPhillImage] = useState(PhillSmilling.src);
+import PhillWriting from "@/assets/phill/v8.png"
+
+export default function InvestorProfile() {
+  const router = useRouter();
+  const [phillImage, setPhillImage] = useState(PhillWriting.src);
+
+  const handleNext = () => {
+    router.push('/chat');
+  };
 
   return (
     <div className="flex justify-center min-h-screen">
@@ -17,17 +22,18 @@ export default function CharacterChat() {
           alt="Phill"
           className="w-full absolute"
           style={{
-            top: '10vw',
-            left: '3vw',
+            left: '40%',
+            top: '50%',
             scale: '0.8',
+            transform: 'translateX(-50%) translateY(-50%)',
+            width: '40%'
           }}
         />
       </div>
       <div
         className="flex flex-col items-center justify-center w-full"
-        style={{ height: '80vh' }}
       >
       </div>
     </div>
   );
-};
+}

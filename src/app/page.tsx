@@ -77,12 +77,12 @@ export default function Home() {
     }
   };
 
-  const redirectToProfile = () => {
+  const redirectToPresentation = () => {
     animationFallDown();
     animationToSmillingPhill();
 
     setTimeout(() => {
-      router.push('/investorProfile');
+      router.push('/presentation');
     }, 700);
   };
 
@@ -126,7 +126,7 @@ export default function Home() {
               margin: '80px 0px 16px 0px',
               fontSize: '18px',
             }}
-            onClick={() => redirectToProfile()}
+            onClick={() => redirectToPresentation()}
           >
             Descubra seu perfil de investidor
           </button>
