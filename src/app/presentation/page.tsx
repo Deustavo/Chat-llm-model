@@ -2,18 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
-
-import PhillWriting from "@/assets/phill/v8.png"
-import PhillSmilling from "@/assets/phill/v3.png"
+import Image from "next/image";
 import Ballon from "@/assets/ballon.png"
+
+import { usePhillImage } from "@/context/PhillImageContext";
 
 export default function PhillPresentation() {
   useEffect(() => {
     animationFadeInBallon();
+
+    if (phillImage !== phill.smilling) {
+      setPhillImage(phill.smilling);
+    }
   }, []);
 
   const router = useRouter();
-  const [phillImage, setPhillImage] = useState(PhillSmilling.src);
+  const { phillImage, setPhillImage, phill } = usePhillImage();
+
   const [presentationTextIndex, setPresentationTextIndex] = useState(0);
 
   const presentationText = [
@@ -34,7 +39,7 @@ export default function PhillPresentation() {
     if(presentationTextIndex === presentationText.length - 1) {
       animationFadeOutBallon();
       animationCenterPhill();
-      setPhillImage(PhillWriting.src);
+      setPhillImage(phill.writing);
 
       setTimeout(() => {
         router.push('/investorProfile');
@@ -76,10 +81,18 @@ export default function PhillPresentation() {
     }
   }
 
+  const getButtonText = () => {
+    if(presentationTextIndex === presentationText.length - 1) {
+      return 'Descubra seu perfil';
+    };
+
+    return 'Proximo';
+  }
+
   return (
     <div className="flex justify-center min-h-screen">
       <div className="w-full relative">
-        <img
+        <Image
           id="phill-image"
           src={phillImage}
           alt="Phill"
@@ -89,6 +102,8 @@ export default function PhillPresentation() {
             left: '3vw',
             scale: '0.8',
           }}
+          width={500}
+          height={500}
         />
       </div>
       <div
@@ -117,21 +132,23 @@ export default function PhillPresentation() {
               }}
             />
           </div>
-          <div
+            <div
             className="absolute flex justify-between"
             style={{
               width: '92%',
               top: '17vw',
               padding: '0 4%',
-              color: 'var(--primary-color)',
               fontSize: '1.4vw',
             }}
-          >
+            >
 
             {presentationTextIndex > 0 ? (
               <p
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-[var(--primary-color)]"
                 onClick={() => handlePrevious()}
+                style={{
+                  transition: 'all 0.2s ease-in-out',
+                }}
               >
                 Anterior
               </p>
@@ -140,10 +157,13 @@ export default function PhillPresentation() {
             )}
 
             <p
-              className="cursor-pointer"
+              className="cursor-pointer hover:text-[var(--primary-color)]"
               onClick={() => handleNext()}
+              style={{
+              transition: 'all 0.2s ease-in-out',
+              }}
             >
-              Proximo
+              { getButtonText() }
             </p>
           </div>
         </div>

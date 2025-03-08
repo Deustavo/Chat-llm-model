@@ -14,10 +14,8 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex h-screen w-screen">
-      <Sidebar
-        isResponsive={false}
-      />
-      <div className="flex items-center justify-center w-5/6">
+      {/* <Sidebar isResponsive={false} /> */}
+      <div className="flex items-center justify-center w-full">
         {children}
       </div>
     </div>

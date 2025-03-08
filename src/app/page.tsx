@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import PhillPointing from "@/assets/phill/v4.png"
-import PhillSmilling from "@/assets/phill/v3.png"
+import Image from 'next/image';
+import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
+import { usePhillImage } from "@/context/PhillImageContext";
 
 export default function Home() {
+  useEffect(() => {
+    setPhillImage(phill.pointing);
+  }, []);
+
   const router = useRouter();
-  const [phillImage, setPhillImage] = useState(PhillPointing.src);
+  const { phillImage, setPhillImage, phill } = usePhillImage();
 
   /**
    * Animação para os elementos da tela cairem
@@ -72,7 +76,7 @@ export default function Home() {
       }, 500);
 
       setTimeout(() => {
-        setPhillImage(PhillSmilling.src)
+        setPhillImage(phill.smilling);
       }, 700);
     }
   };
@@ -98,12 +102,14 @@ export default function Home() {
   return (
     <div className="flex justify-center min-h-screen">
       <div className="w-full relative">
-        <img
+        <Image
           id="phill-image"
           src={phillImage}
           alt="Phill"
           className="w-full absolute"
           style={{ top: '10vw', left: '3vw' }}
+          width={500}
+          height={500}
         />
       </div>
       <div

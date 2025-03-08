@@ -10,6 +10,10 @@
   --secondary-color: #302624;
 }
 
+* {
+  user-select: none;
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #171f31;

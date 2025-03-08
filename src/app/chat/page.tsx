@@ -120,7 +120,7 @@ export default function CharacterChat({ ...props }: ChatProps) {
                 </div>
             </div>
             <div
-              className="h-1/6 w-full p-4 bg-black bg-opacity-40 flex justify-center items-center overflow-hidden"
+              className="h-1/6 w-full p-4 flex justify-center items-center overflow-hidden"
             >
                 <div className="max-w-3xl w-full">
                     <div className="input-group flex items-center bg-white rounded-lg w-full py-2 px-4 hover:bg-slate-400 focus-within:bg-slate-400 group transition ease-in-out duration-300">
